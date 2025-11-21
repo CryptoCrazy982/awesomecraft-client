@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.glass-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+/* ================================
+   HERO SECTION STYLES
+================================ */
+
+.hero-container {
+  @apply w-full h-[480px] md:h-[650px] xl:h-[720px] relative flex items-center justify-center bg-cover bg-center overflow-hidden transition-all duration-700;
+}
+
+/* Dark overlay */
+.hero-overlay {
+  @apply absolute inset-0 bg-black/40 md:bg-black/50 backdrop-blur-sm;
+}
+
+/* Main content */
+.hero-content {
+  @apply relative z-20 max-w-3xl text-center px-2 py-8 
+  rounded-3xl shadow-xl border border-white/20;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(14px);
+  animation: fadeSlideUp 1s ease-out;
+}
+
+.hero-subtitle {
+  @apply text-sm md:text-lg text-white/90 font-medium mb-2 tracking-wide;
+}
+
+.hero-title {
+  @apply text-[32px] md:text-6xl font-extrabold text-white drop-shadow-2xl leading-tight;
+  letter-spacing: -1px;
+}
+
+.hero-description {
+  @apply mt-4 text-[15px] md:text-xl text-white/80 leading-relaxed;
+}
+
+/* CTA Button */
+.hero-button {
+  @apply inline-block mt-7 px-8 py-3 md:px-10 md:py-4 
+  rounded-full text-white font-semibold shadow-xl text-sm md:text-lg 
+  transition-all duration-300;
+  background: linear-gradient(135deg, #ff5ea7, #ff1e75);
+  box-shadow: 0 10px 30px rgba(255, 45, 125, 0.4);
+}
+
+.hero-button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 40px rgba(255, 45, 125, 0.6);
+}
+
+/* Floating Shapes (soft glow aesthetic) */
+.floating-shape {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+  animation: floatAnim 6s ease-in-out infinite;
+  filter: blur(40px);
+  opacity: 0.6;
+}
+
+.shape1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape2 {
+  bottom: 10%;
+  right: 15%;
+  animation-delay: 1.5s;
+}
+
+@keyframes floatAnim {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-25px); }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ================================
+   FEATURE STRIP
+================================ */
+.feature-strip {
+  @apply w-full bg-gradient-to-r from-amber-100 to-yellow-100 py-8 shadow-inner;
+}
+
+.feature-wrapper {
+  @apply max-w-6xl mx-auto flex flex-wrap justify-center gap-10 text-[#A13D00];
+}
+
+
+.fixed-2-lines {
+  height: 40px;        /* exactly 2 lines height */
+  line-height: 20px;   /* your text line height */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fixed-1-line {
+  height: 20px;         /* exactly 1 line height */
+  line-height: 20px;    /* same line height */
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;  /* required for webkit-box */
+}
